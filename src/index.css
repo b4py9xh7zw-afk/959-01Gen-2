@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased text-ink-900 bg-ink-50 min-h-screen;
+  }
+
+  * {
+    @apply border-ink-200;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded text-sm font-medium transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink-800 text-white hover:bg-ink-900 focus:ring-ink-500 active:scale-[0.96];
+  }
+
+  .btn-gold {
+    @apply btn bg-gold-500 text-white hover:bg-gold-600 focus:ring-gold-400 shadow-gold active:scale-[0.96];
+  }
+
+  .btn-danger {
+    @apply btn bg-coral-500 text-white hover:bg-coral-600 focus:ring-coral-400 active:scale-[0.96];
+  }
+
+  .btn-outline {
+    @apply btn border border-ink-300 text-ink-700 hover:bg-ink-100 focus:ring-ink-400 active:scale-[0.96];
+  }
+
+  .btn-ghost {
+    @apply btn text-ink-600 hover:bg-ink-100 focus:ring-ink-400 active:scale-[0.96];
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-card border border-ink-100 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  .input {
+    @apply block w-full px-3 py-2 bg-white border border-ink-300 rounded text-sm placeholder:text-ink-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 disabled:bg-ink-50 disabled:text-ink-500;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-ink-700 mb-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-forest-100 text-forest-700;
+  }
+
+  .badge-warning {
+    @apply badge bg-gold-100 text-gold-700;
+  }
+
+  .badge-danger {
+    @apply badge bg-coral-100 text-coral-700;
+  }
+
+  .badge-neutral {
+    @apply badge bg-ink-100 text-ink-700;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded text-ink-300 hover:bg-ink-800/50 hover:text-white transition-all duration-150;
+  }
+
+  .sidebar-link-active {
+    @apply sidebar-link bg-ink-800 text-white shadow-inner-glow;
+  }
+
+  .stat-card {
+    @apply card p-6 relative overflow-hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1;
+  }
+
+  .modal-backdrop {
+    @apply fixed inset-0 bg-ink-900/60 backdrop-blur-xs flex items-center justify-center z-50 animate-fade-in;
+  }
+
+  .modal-content {
+    @apply bg-white rounded-lg shadow-card-hover max-w-2xl w-full mx-4 animate-scale-in;
+  }
+
+  .progress-bar {
+    @apply h-2 bg-ink-100 rounded-full overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-gradient-to-r from-gold-400 to-gold-500 rounded-full transition-all duration-500;
+  }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #6b6b95 transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #6b6b95;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: #4a4a7a;
+  }
+}
+
+@layer utilities {
+  .font-weight-100 { font-weight: 100; }
+  .font-weight-200 { font-weight: 200; }
+  .font-weight-300 { font-weight: 300; }
+  .font-weight-400 { font-weight: 400; }
+  .font-weight-500 { font-weight: 500; }
+  .font-weight-600 { font-weight: 600; }
+  .font-weight-700 { font-weight: 700; }
+  .font-weight-800 { font-weight: 800; }
+  .font-weight-900 { font-weight: 900; }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}
